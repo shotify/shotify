@@ -1,4 +1,5 @@
 @import "normalize.styl"
+@import "fonts.styl"
 
 gris_oscuro = #333333
 gris_claro = #818181
@@ -11,15 +12,18 @@ figure
 	margin 0
 //buttons
 .button-menu
+	color gris_oscuro
+	left .5em
+	margin-top -10px
 	position absolute
 	top 50%
-	margin-top -10px
-	left .5em
 //oocss classes
 .container
-	padding 1.4rem
 	font-size 0
+	padding 1.4rem
 	text-align center
+.actions
+	position absolute
 .border
 	border-bottom 1px solid gris_claro
 .name 
@@ -30,24 +34,31 @@ figure
 	position relative
 .author
 	color gris_claro
+.center-block
+	margin 0 auto
+.center-text
+	text-align center
 .header
 	height 3.5em
 	
 	.title
 		font-size 1.1em
-		text-align center
-		margin 0
 		line-height 3.5em
+		margin 0
+		text-align center
 .song 
-	width 8rem
 	display inline-block
 	font-size 1rem
-	margin-right 1em
 	margin-bottom 1em
+	margin-right 1em
 	text-align left
+	width 8rem
 	&:nth-child(even)
 		margin-right 
 	p
 		margin .5em 0
 
+.playing
+	&.small
+		width 20em
 
