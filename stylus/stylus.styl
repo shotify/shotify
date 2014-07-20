@@ -1,12 +1,25 @@
+@import "nib"
 @import "normalize.styl"
 @import "fonts.styl"
 
+//variables
 gris_oscuro = #333333
 gris_claro = #818181
 rojo = #8D255B
 gris_mas_claro = #F0F0F0
 
+vendor-prefixes = moz webkit o ms
 
+//Mixins
+animacion(parametro)
+	-webkit-animation parametro
+	-moz-animation parametro
+	-ms-animation parametro
+	-o-animation parametro
+	animation parametro
+
+
+//valores por defecto
 a
 	text-decoration none
 body
@@ -33,18 +46,18 @@ ul
 	text-align center
 .action 
 	color white
-	margin-right .5em
 	font-size 1.2em
+	margin-right .5em
 	&:last-child
 		margin-right 0
 	&.gray 
 		color gris_claro
 .actions
-	position absolute 
-	bottom 0
-	right 0
-	left 0
 	background rgba(black,.3)
+	bottom 0
+	left 0
+	position absolute 
+	right 0
 .border
 	border-bottom 1px solid gris_claro
 .name 
@@ -55,6 +68,8 @@ ul
 	position relative
 .author
 	color gris_claro
+
+//utilities
 .center-block
 	margin 0 auto
 .center-text
@@ -89,26 +104,30 @@ ul
 	.margin
 		right 0
 	.total
-		height 5px
 		background gris_claro
-		width 100%
 		border-radius 5px
-		width 75%
-		margin 0 auto
-	.state
 		height 5px
+		margin 0 auto
+		width 100%
+		width 75%
+	.state
 		background rojo
-		width 30%
 		border-radius 5px
+		height 5px
 		position relative
+		width 30%
+		animation 250s state infinite linear
+		//animacion(1s state infinite)
 	.circle
-		width 10px
-		height 10px
 		background gris_oscuro
 		border-radius 50%
-		top -2px
+		height 10px
 		position absolute
 		right 0
+		top -2px
+		width 10px
+		animation 10s circle infinite
+		//animacion(1s circle infinite)
 .header
 	height 3.5em
 	
@@ -132,24 +151,67 @@ ul
 .playing
 	&.small
 		width 20em
+		margin 0 auto
 .input
 	border 1px solid gris_claro
-	height 2.5em
 	border-radius 5px
+	height 2.5em
 	padding 0 1em 0 2em
 .search-icon
-	position absolute
+	color gris_claro
 	left .5em
-	top .8em
-	color gris_claro
-.close-icon
 	position absolute
-	top .5em
+	top .8em
+.close-icon
 	color gris_claro
-	right .5em
 	font-size 1.2em	
-.logo
+	position absolute
+	right .5em
+	top .5em
+.playlist
+	border-left 1px solid gris_claro
 	display none
+	padding 0 2em
+	width 22em
+	.list
+		list-style none
+	.item
+		padding 1em 0
+.isotipo
+		width 122px
+.logo
+	background white 
+	display none
+	overflow hidden
+	padding 1.3em 0
+.avatar
+	height 38px
+	width 38px
+.username
+	color gris_claro
+	margin-left .5em
+	position relative
+	top 8px
+	&:after
+		border-left 7px solid transparent
+		border-right 7px solid trasnparent
+		border-top 9px solid gris_claro
+		content ""
+		display inline-block
+		margin-left .5em
+//declracion de animaciones
+@keyframes state
+	from
+		width 0
+	to
+		width 100%
+@keyframes circle
+	0%
+		transform scale(1)
+	100%
+		transform scale(2)
+		opacity 0
+
 @media screen and (min-width:480px)
 	.song
 		&:nth-child(even)
@@ -167,49 +229,42 @@ ul
 		background gris_mas_claro
 	.button-menu
 		display none
+	.playing 
+		padding-top .3em
+		&.large
+			margin 0 auto
+			overflow hidden
+			width 62.5em
+	.music
+		float left
+		width 32.5em
+		.description
+			display none
 	.header
 		height auto
+		border none
 		.title
 			display none
-	.isotipo
-		width 122px
-	.logo
-		display block
-		padding 1.3em 0
-		overflow hidden
-		background white 
-	.avatar
-		width 38px
-		height 38px
-	.username
-		color gris_claro
-		position relative
-		top 8px
-		margin-left .5em
-		&:after
-			border-left 7px solid transparent
-			border-right 7px solid trasnparent
-			border-top 9px solid gris_claro
-			content ""
-			display inline-block
-			margin-left .5em
 	.menu
-		display block
 		background gris_mas_claro
+		border-top 1px solid gris_claro
+		display block
 		overflow hidden
 		.item 
 			float left
 			list-style none
 			a
-				color gris_oscuro
-				text-transform uppercase
-				cursor pointer
-				padding 1em
-				display block
 				border-top 5px solid transparent
+				color gris_oscuro
+				cursor pointer
+				display block
+				padding 1em
+				text-transform uppercase
 				&:hover
 					border-top 5px solid gris_claro
-
+	.playlist
+	.logo
+		display block
 
 
 

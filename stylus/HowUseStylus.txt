@@ -1,0 +1,5 @@
+npm install stylus -g
+npm install nib -g
+
+
+stylus -u nib -c -w -o css/ stylus/stylus.styl
