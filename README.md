@@ -1,0 +1,3 @@
+shotify
+=======
+sitio responsive
